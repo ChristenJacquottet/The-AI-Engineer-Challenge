@@ -9,6 +9,9 @@ from openai import OpenAI
 import os
 from typing import Optional
 
+from dotenv import load_dotenv
+load_dotenv()
+
 # Initialize FastAPI application with a title
 app = FastAPI(title="OpenAI Chat API")
 
@@ -22,20 +25,33 @@ app.add_middleware(
     allow_headers=["*"],  # Allows all headers in requests
 )
 
+# Default developer message for vintage Mac emulation
+DEFAULT_DEVELOPER_MESSAGE = (
+    "You are a friendly, helpful vintage Macintosh computer from the 1990s. "
+    "You answer in a polite, slightly quirky tone, sometimes referencing classic Mac features, sounds, or software. "
+    "Your responses are concise and pixel-perfect, as if typed on a classic Mac screen."
+)
+
 # Define the data model for chat requests using Pydantic
 # This ensures incoming request data is properly validated
 class ChatRequest(BaseModel):
-    developer_message: str  # Message from the developer/system
+    developer_message: Optional[str] = None  # Message from the developer/system
     user_message: str      # Message from the user
     model: Optional[str] = "gpt-4.1-mini"  # Optional model selection with default
-    api_key: str          # OpenAI API key for authentication
 
 # Define the main chat endpoint that handles POST requests
 @app.post("/api/chat")
 async def chat(request: ChatRequest):
     try:
+        # Read API key from environment
+        api_key = os.environ.get("OPENAI_API_KEY")
+        if not api_key:
+            raise HTTPException(status_code=500, detail="OpenAI API key not set in environment.")
         # Initialize OpenAI client with the provided API key
-        client = OpenAI(api_key=request.api_key)
+        client = OpenAI(api_key=api_key)
+
+        # Use default developer message if not provided
+        developer_message = request.developer_message or DEFAULT_DEVELOPER_MESSAGE
         
         # Create an async generator function for streaming responses
         async def generate():
@@ -43,7 +59,7 @@ async def chat(request: ChatRequest):
             stream = client.chat.completions.create(
                 model=request.model,
                 messages=[
-                    {"role": "developer", "content": request.developer_message},
+                    {"role": "developer", "content": developer_message},
                     {"role": "user", "content": request.user_message}
                 ],
                 stream=True  # Enable streaming response

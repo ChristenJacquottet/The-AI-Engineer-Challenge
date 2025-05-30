@@ -1,11 +1,15 @@
 @font-face {
   font-family: 'Chicago';
-  src: url('https://unpkg.com/retro-mac-fonts@1.0.0/Chicago.ttf') format('truetype');
+  src: url('./assets/fonts/Chicago-12.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
   font-family: 'Monaco';
-  src: url('https://unpkg.com/retro-mac-fonts@1.0.0/Monaco.ttf') format('truetype');
+  src: url('./assets/fonts/Monaco-12.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
 
 :root {

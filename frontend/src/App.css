@@ -30,7 +30,7 @@
   padding: 8px 16px;
   border-bottom: 2px solid #b0b0b0;
   font-size: 14px;
-  font-family: 'Chicago', 'Monaco', monospace;
+  font-family: 'Sysfont', 'Monaco', monospace;
   letter-spacing: 0.5px;
   display: flex;
   align-items: center;
@@ -115,7 +115,7 @@
   font-size: 13px;
   cursor: pointer;
   border-radius: 4px;
-  font-family: 'Chicago', 'Monaco', monospace;
+  font-family: 'Sysfont', 'Monaco', monospace;
 }
 
 .send-button:active {

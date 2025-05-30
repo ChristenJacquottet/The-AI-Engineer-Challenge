@@ -5,9 +5,41 @@ alwaysApply: false
 ---
 ### Rules for Frontend
 
-- You must pay attention to visual clarity and contrast. Do not place white text on a white background.
-- You must ensure the UX is pleasant. Boxes should grow to fit their contents, etc. 
-- When asking the user for sensitive information - you must use password style text-entry boxes in the UI.
-- You should use Next.js as it works best with Vercel. 
-- This frontend will ultimately be deployed on Vercel, but it should be possible to test locally. 
-- Always provide users with a way to run the created UI once you have created it.
+- Retro Macintosh Design System
+  - 4:3 CRT shell: fixed‑aspect container (512×342 internal units), centered in cream‑beige bezel (#DCD0B4) with 8 px inner border (#C4B79C), bottom‑right LED 16×4 px bright green (#00FF00) glow, and `image-rendering: pixelated`.
+  - Screen background: flat System 7 desktop blue #9BA0D4.
+- Windows & Panels
+  - Window frame: 1 px solid black border; inset highlight (1 px white top/left) and inset shadow (1 px #808080 bottom/right); interior fill #E8E8E8.
+  - Title bar: 18 px high; active fill #000000 with Chicago 9 pt bold white text; inactive fill #AAAAAA with #404040 text; 4 px left padding.
+  - Control boxes:
+    - Close box: 14×14 px at 3 px from top/left, 1 px black border, #E8E8E8 interior, 2 px “X” glyph.
+    - Grow box: 12×12 px dotted fill (3×3 white dots on black) with 1 px black border.
+- Scrollbars & Inputs
+  - Scrollbar track: 15 px wide #E8E8E8, 1 px black border.
+  - Arrows: 11×11 px black glyph on #E8E8E8.
+  - Thumb: fill #AAAAAA with 1 px #FFFFFF highlight top/left and 1 px #808080 shadow bottom/right.
+  - Buttons & fields: classic 3D bevel (outer shadow + inner highlight), 2 px padding, Chicago 9 pt labels.
+- Typography
+  - Font: Chicago Regular (fallback Geneva, Arial, sans‑serif).
+  - Sizes: menu & labels 12 pt; window titles & dialogs 9 pt.
+  - Disable sub‑pixel antialiasing for crisp bitmap rendering.
+- Menu Bar
+  - Height: 16 px, fill #C0C0C0.
+  - Menu text: Chicago 12 pt, #000000.
+  - Open menu: BG #000080, text #FFFFFF.
+  - Separators: 1 px black lines.
+- Icons & Imagery
+  - Use original System 7 icons at 32×32 px (1‑bit or 4‑bit), pixel‑aligned on an 8 px grid, with nearest‑neighbor export.
+- Focus & Accessibility
+  - Focus outline: 1 px dotted #000000.
+  - Ensure text contrast ≥ 4.5:1.
+  - Semantic HTML + ARIA roles; full keyboard navigation (Tab, arrows, Enter).
+- Responsive & Scaling
+  - Scale the 4:3 container with `transform: scale()`, not reflow.
+  - Clamp to viewport (max‑width: 100 vw, max‑height: 100 vh) with black letterboxing.
+  - Snap scale factors to integers or simple fractions (×1, ×1.5, ×2).
+- Extras
+  - Animations: simple 100 ms fades and grow‑box bounce (no easing).
+  - System sounds (Trill, Clang) via Web Audio API.
+  - Optional “power switch” overlay: gray‑out screen + scan‑line texture.
+ctions to run and test the retro UI
