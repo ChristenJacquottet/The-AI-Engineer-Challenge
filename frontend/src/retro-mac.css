@@ -1,0 +1,96 @@
+@font-face {
+  font-family: 'Chicago';
+  src: url('https://unpkg.com/retro-mac-fonts@1.0.0/Chicago.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Monaco';
+  src: url('https://unpkg.com/retro-mac-fonts@1.0.0/Monaco.ttf') format('truetype');
+}
+
+:root {
+  --mac-gray: #c0c0c0;
+  --mac-dark-gray: #808080;
+  --mac-black: #000000;
+  --mac-white: #ffffff;
+  --mac-blue: #0000ff;
+  --mac-window-bg: #c0c0c0;
+  --mac-title-bar: #000080;
+  --mac-border: #000000;
+}
+
+.retro-mac-window {
+  font-family: 'Chicago', 'Monaco', monospace;
+  image-rendering: pixelated;
+  -webkit-font-smoothing: none;
+  font-smoothing: none;
+}
+
+.window-title-bar {
+  background: var(--mac-title-bar);
+  color: var(--mac-white);
+  padding: 4px 8px;
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid var(--mac-border);
+  font-size: 12px;
+  letter-spacing: 0.5px;
+}
+
+.window-title-bar::before {
+  content: "●";
+  margin-right: 8px;
+  font-size: 14px;
+}
+
+.window-content {
+  background: var(--mac-window-bg);
+  border: 2px solid var(--mac-border);
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+.retro-button {
+  background: var(--mac-gray);
+  border: 2px solid var(--mac-border);
+  padding: 4px 12px;
+  font-family: 'Chicago', 'Monaco', monospace;
+  font-size: 12px;
+  cursor: pointer;
+  box-shadow: 2px 2px 0 var(--mac-black);
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.retro-button:active {
+  top: 2px;
+  left: 2px;
+  box-shadow: none;
+}
+
+.retro-input {
+  background: var(--mac-white);
+  border: 2px solid var(--mac-border);
+  padding: 4px 8px;
+  font-family: 'Monaco', monospace;
+  font-size: 12px;
+  image-rendering: pixelated;
+}
+
+.retro-scrollbar {
+  width: 16px;
+  background: var(--mac-gray);
+  border-left: 2px solid var(--mac-border);
+}
+
+.retro-scrollbar-thumb {
+  background: var(--mac-dark-gray);
+  border: 2px solid var(--mac-border);
+  min-height: 20px;
+}
+
+.pixelated {
+  image-rendering: pixelated;
+  -webkit-font-smoothing: none;
+  font-smoothing: none;
+} 

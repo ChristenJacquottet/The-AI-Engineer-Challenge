@@ -1,0 +1,119 @@
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  min-height: 100vh;
+  min-width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+}
+
+.crt-frame {
+  background: #e5ddc5;
+  border-radius: 32px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 760px;
+  height: 760px;
+  position: relative;
+}
+
+.crt-frame::before {
+  content: '';
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  top: 12px;
+  bottom: 84px;
+  border-radius: 24px;
+  background: #d6d1c2;
+  z-index: 1;
+}
+
+.crt-frame::after {
+  content: '';
+  position: absolute;
+  left: 32px;
+  right: 32px;
+  top: 32px;
+  bottom: 104px;
+  border-radius: 16px;
+  background: #b8b09c;
+  z-index: 2;
+}
+
+.crt-screen {
+  background: #bfc6e8;
+  border-radius: 10px;
+  width: 640px;
+  height: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow:
+    0 0 0 18px #222,
+    0 0 32px 8px #222a inset;
+  z-index: 3;
+}
+
+.crt-screen::before {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; top: 0; bottom: 0;
+  border-radius: 8px;
+  box-shadow:
+    0 0 32px 8px #222a inset,
+    0 0 0 8px #222 inset;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.crt-screen::after {
+  content: '';
+  pointer-events: none;
+  position: absolute;
+  left: 0; right: 0; top: 0; bottom: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255,255,255,0.04) 0px,
+    rgba(255,255,255,0.04) 1px,
+    transparent 1px,
+    transparent 4px
+  );
+  z-index: 3;
+}
+
+.crt-power-led {
+  position: absolute;
+  bottom: 32px;
+  right: 36px;
+  width: 12px;
+  height: 12px;
+  background: #1f3;
+  border-radius: 50%;
+  box-shadow: 0 0 8px 2px #1f3a;
+  border: 2px solid #b8b09c;
+  z-index: 10;
+}
+
+.crt-apple-logo {
+  position: absolute;
+  bottom: 32px;
+  left: 36px;
+  width: 18px;
+  height: 18px;
+  background: url('https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg') no-repeat center/contain;
+  opacity: 0.7;
+  z-index: 10;
+} 
