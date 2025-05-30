@@ -3,6 +3,8 @@ import './App.css';
 import './retro-mac.css';
 import './crt-frame.css';
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 function App() {
   const [messages, setMessages] = useState([]);
   const [inputMessage, setInputMessage] = useState('');
@@ -33,7 +35,7 @@ function App() {
 
     // Send user message to backend and stream response
     try {
-      const response = await fetch('/api/chat', {
+      const response = await fetch(`${API_URL}/chat`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ user_message: newMessage.text })
